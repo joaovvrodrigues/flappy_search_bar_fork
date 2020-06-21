@@ -58,3 +58,8 @@ Finally, giving a SearchBarStyle, you will be able to change the SearchBar's sty
 * Fork flappy_search_bar: flappy_search_bar_search
 * Add cancellation widget width to make it more customizable
 * Add "Random" button in example app that change cancellation widget width randomly
+
+## [1.7.4] - 21/06/2020
+
+* Allow customize SearchBar Border
+* Allow customize SearchBar Height
