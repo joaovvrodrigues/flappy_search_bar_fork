@@ -63,3 +63,8 @@ Finally, giving a SearchBarStyle, you will be able to change the SearchBar's sty
 
 * Allow customize SearchBar Border
 * Allow customize SearchBar Height
+
+## [1.7.5] - 21/06/2020
+
+* NullSafety
+* New animations
