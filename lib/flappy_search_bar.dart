@@ -339,7 +339,6 @@ class _SearchBarState<T> extends State<SearchBar<T?>>
         padding: widget.listPadding,
         child: AnimationLimiter(
           child: ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: const EdgeInsets.only(top: 16),
               itemCount: items.length,
