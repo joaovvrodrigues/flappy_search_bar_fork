@@ -187,21 +187,13 @@ class SearchBar<T> extends StatefulWidget {
   /// Enable to edit the style of the search bar
   final SearchBarStyle searchBarStyle;
 
-  /// Number of items displayed on cross axis
-  final int crossAxisCount;
 
   /// Weather the list should take the minimum place or not
   final bool shrinkWrap;
 
   /// Set the scrollDirection
   final Axis scrollDirection;
-
-  /// Spacing between tiles on main axis
-  final double mainAxisSpacing;
-
-  /// Spacing between tiles on cross axis
-  final double crossAxisSpacing;
-
+  
   /// Set a padding on the search bar
   final EdgeInsetsGeometry searchBarPadding;
 
@@ -234,11 +226,8 @@ class SearchBar<T> extends StatefulWidget {
     this.suggestions = const [],
     this.buildSuggestion,
     this.searchBarStyle = const SearchBarStyle(),
-    this.crossAxisCount = 1,
     this.shrinkWrap = false,
     this.scrollDirection = Axis.vertical,
-    this.mainAxisSpacing = 0.0,
-    this.crossAxisSpacing = 0.0,
     this.listPadding = const EdgeInsets.all(0),
     this.searchBarPadding = const EdgeInsets.all(0),
     this.headerPadding = const EdgeInsets.all(0),

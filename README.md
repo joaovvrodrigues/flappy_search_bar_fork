@@ -53,9 +53,6 @@ To use this plugin, add flappy_search_bar as a dependency in your pubspec.yaml f
           onCancelled: () {
             print("Cancelled triggered");
           },
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          crossAxisCount: 2,
           onItemFound: (Post post, int index) {
             return Container(
               color: Colors.lightBlue,

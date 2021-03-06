@@ -99,9 +99,6 @@ class _HomeState extends State<Home> {
             print("Cancelled triggered");
           },
           onError: (error) => Text('${error.toString()}'),
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          crossAxisCount: 2,
           onItemFound: (Post post, int index) {
             return Container(
               color: Colors.lightBlue,
