@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flappy_search_bar_fork/flappy_search_bar.dart';
-import 'package:flappy_search_bar_fork/scaled_tile.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -43,7 +42,8 @@ class _HomeState extends State<Home> {
 
     var random = new Random();
     for (int i = 0; i < 10; i++) {
-      posts.add(Post("$text $i", "body random number : ${random.nextInt(100)}"));
+      posts
+          .add(Post("$text $i", "body random number : ${random.nextInt(100)}"));
     }
     return posts;
   }
@@ -62,10 +62,11 @@ class _HomeState extends State<Home> {
           cancellationWidget: Text("Cancel"),
           cancellationWidgetWidth: cancellationWidgetWidth,
           emptyWidget: Text("empty"),
-          indexedScaledTileBuilder: (int index) => ScaledTile.count(1, index.isEven ? 2 : 1),
+          // indexedScaledTileBuilder: (index) =>
+          //     ScaledTile.count(index % 3 == 0 ? 2 : 1, 1),
           header: Row(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Sort"),
                 onPressed: () {
                   _searchBarController.sortList((Post a, Post b) {
@@ -73,31 +74,31 @@ class _HomeState extends State<Home> {
                   });
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Desort"),
                 onPressed: () {
                   _searchBarController.removeSort();
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Replay"),
                 onPressed: () {
                   isReplay = !isReplay;
                   _searchBarController.replayLastSearch();
                 },
               ),
-              RaisedButton(
-                child: Text("Random"),
-                onPressed: () {
-                  cancellationWidgetWidth = random.nextInt(250) + 50.0;
-                  setState(() {});
-                }
-              )
+              ElevatedButton(
+                  child: Text("Random"),
+                  onPressed: () {
+                    cancellationWidgetWidth = random.nextInt(250) + 50.0;
+                    setState(() {});
+                  })
             ],
           ),
           onCancelled: () {
             print("Cancelled triggered");
           },
+          onError: (error) => Text('${error.toString()}'),
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
           crossAxisCount: 2,
@@ -109,7 +110,8 @@ class _HomeState extends State<Home> {
                 isThreeLine: true,
                 subtitle: Text(post.body),
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Detail()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Detail()));
                 },
               ),
             );
