@@ -31,10 +31,9 @@ class _HomeState extends State<Home> {
   final SearchBarController<Post> _searchBarController = SearchBarController();
   bool isReplay = false;
   Random random = Random();
-  double cancellationWidgetWidth;
 
-  Future<List<Post>> _getALlPosts(String text) async {
-    await Future.delayed(Duration(seconds: text.length == 4 ? 10 : 1));
+  Future<List<Post>> _getALlPosts(String? text) async {
+    await Future.delayed(Duration(seconds: text!.length == 4 ? 10 : 1));
     if (isReplay) return [Post("Replaying !", "Replaying body")];
     if (text.length == 5) throw Error();
     if (text.length == 6) return [];
@@ -60,7 +59,6 @@ class _HomeState extends State<Home> {
           searchBarController: _searchBarController,
           placeHolder: Text("placeholder"),
           cancellationWidget: Text("Cancel"),
-          cancellationWidgetWidth: cancellationWidgetWidth,
           emptyWidget: Text("empty"),
           // indexedScaledTileBuilder: (index) =>
           //     ScaledTile.count(index % 3 == 0 ? 2 : 1, 1),
@@ -87,23 +85,17 @@ class _HomeState extends State<Home> {
                   _searchBarController.replayLastSearch();
                 },
               ),
-              ElevatedButton(
-                  child: Text("Random"),
-                  onPressed: () {
-                    cancellationWidgetWidth = random.nextInt(250) + 50.0;
-                    setState(() {});
-                  })
             ],
           ),
           onCancelled: () {
             print("Cancelled triggered");
           },
           onError: (error) => Text('${error.toString()}'),
-          onItemFound: (Post post, int index) {
+          onItemFound: (Post? post, int index) {
             return Container(
               color: Colors.lightBlue,
               child: ListTile(
-                title: Text(post.title),
+                title: Text(post!.title),
                 isThreeLine: true,
                 subtitle: Text(post.body),
                 onTap: () {
